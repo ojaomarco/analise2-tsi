@@ -1,0 +1,18 @@
+@startuml
+!include https://raw.githubusercontent.com/adrianvlupu/C4-PlantUML/latest/C4_Context.puml
+
+LAYOUT_WITH_LEGEND()
+
+Person(pco, "Pessoa Cliente da Ong", "Um cliente cadastrado no sistema da Ong.")
+Person(pao, "Pessoa atendente da Ong", "Um funcionário da Ong.")
+
+
+System(so, "Sistema da Ong", "Permite aos usuários utilizar todos os recursos do sitema.")
+System_Ext(sc, "Sistema de chat", "Sistema de conversação entre os clientes e atendentes.")
+
+Rel(pco, so, "Usa")
+Rel(pao, so, "Usa")
+
+Rel(pco, sc, "Envia e recebe mensagens via sistema de chat.")
+Rel(pao, sc, "Envia e recebe mensagens via sistema de chat.")
+@enduml
